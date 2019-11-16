@@ -1,42 +1,17 @@
 import React, { useState } from "react";
 import ReduxLogo from "../assets/redux.png";
-import ToDoItem from "./ToDoItem";
+import { ToDoItem } from "./ToDoItem";
 import "./ToDo.css";
+import { addItem, useList } from "../reduxState/list";
 
-const ToDo = (props) => {
-  const { list, redux_add, redux_delete } = props;
-  const [todo, setTodo] = useState("");
-
-  const generateId = () => {
-    if (list && list.length > 1) {
-      return Math.max(...list.map((t) => t.id)) + 1;
-    } else {
-      return 1;
-    }
-  };
+export const ToDo = () => {
+  const list = useList();
+  const [text, setText] = useState("");
 
   const createNewToDoItem = () => {
-    //validate todo
-    if (!todo) {
-      return alert("Please enter a todo!");
-    }
-    const newId = generateId();
-    redux_add({ id: newId, text: todo });
-    setTodo("");
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      createNewToDoItem();
-    }
-  };
-
-  const handleInput = (e) => {
-    setTodo(e.target.value);
-  };
-
-  const deleteItem = (todo) => {
-    redux_delete(todo.id);
+    if (!text) return alert("Please enter text!");
+    addItem({ text });
+    setText("");
   };
 
   return (
@@ -45,14 +20,18 @@ const ToDo = (props) => {
       <h1 className="ToDo-Header">Redux To Do</h1>
       <div className="ToDo-Container">
         <div className="ToDo-Content">
-          {list &&
-            list.map((item) => {
-              return <ToDoItem key={item.id} item={item} deleteItem={deleteItem} />;
-            })}
+          {list.map(item => (
+            <ToDoItem key={item.id} item={item} />
+          ))}
         </div>
 
         <div className="ToDoInput">
-          <input type="text" value={todo} onChange={handleInput} onKeyPress={handleKeyPress} />
+          <input
+            type="text"
+            value={text}
+            onChange={e => setText(e.target.value)}
+            onKeyPress={e => e.key === "Enter" && createNewToDoItem()}
+          />
           <button className="ToDo-Add" onClick={createNewToDoItem}>
             +
           </button>
@@ -61,5 +40,3 @@ const ToDo = (props) => {
     </div>
   );
 };
-
-export default ToDo;
