@@ -1,6 +1,6 @@
 import React from "react";
 import "./ToDoItem.css";
-import { deleteItem } from "../reduxState/list";
+import { deleteItem } from "../redux/list";
 
 export const ToDoItem = ({ item }) => (
   <div className="ToDoItem">

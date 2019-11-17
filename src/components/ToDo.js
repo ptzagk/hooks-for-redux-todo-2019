@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReduxLogo from "../assets/redux.png";
 import { ToDoItem } from "./ToDoItem";
 import "./ToDo.css";
-import { addItem, useList } from "../reduxState/list";
+import { addItem, useList } from "../redux/list";
 
 export const ToDo = () => {
   const list = useList();
