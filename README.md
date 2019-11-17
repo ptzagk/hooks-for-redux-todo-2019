@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## hooks-for-redux Refactor
 
-Converting this app to hooks-for-redux reduced its JavaScript by over 50%. See the [comparisons](tree/master/comparison) for details.
+Converting this app to hooks-for-redux reduced its JavaScript by over 50%. See the [comparisons](comparison) for details.
 
 ## Available Scripts
 
