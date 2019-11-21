@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## hooks-for-redux Refactor
 
 Converting this app to [hooks-for-redux](https://github.com/generalui/hooks-for-redux) reduced its total JavaScript by over 50%. Compare the total JavaScript size and elegance:
