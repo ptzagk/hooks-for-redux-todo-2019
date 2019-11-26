@@ -1,3 +1,4 @@
+// 85 lines of code after removing comments & inter-file spacing
 //**********************************************
 // src/components/ToDo.js
 //**********************************************
