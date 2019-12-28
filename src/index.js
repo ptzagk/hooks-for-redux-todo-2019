@@ -1,11 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { Provider } from "hooks-for-redux";
-import { App } from "./App";
+import { ToDo } from "./components/ToDo";
+import "./index.css";
 
-ReactDOM.render(
-  <Provider>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
+render(<Provider><ToDo /></Provider>, document.getElementById("root"));
